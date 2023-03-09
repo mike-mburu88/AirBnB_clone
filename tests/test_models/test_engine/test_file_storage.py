@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
 Test for storage
 """
@@ -7,7 +7,6 @@ import unittest
 from time import sleep
 import json
 from models.engine.file_storage import FileStorage
-
 
 class test_fileStorage(unittest.TestCase):
     """Test FileStorage Class"""
