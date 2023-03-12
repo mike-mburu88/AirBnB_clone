@@ -1,0 +1,5 @@
+#!/usr/bin/python3
+"""creates a definition for the HBNB console"""
+import cmd
+import re
+from shlex import split
