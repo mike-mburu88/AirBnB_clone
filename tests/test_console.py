@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""create a definition for the console module
-
+"""Defines unittests for console.py.
 
 Unittest classes:
     TestHBNBCommand_prompting
@@ -32,6 +31,18 @@ class TestHBNBCommand_prompting(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd(""))
             self.assertEqual("", output.getvalue().strip())
+
+
+class TestHBNBCommand_help(unittest.TestCase):
+    """Unittests for testing help messages of the HBNB command interpreter."""
+
+    def test_help_quit(self):
+        h = "Quit command to exit the program."
+        with patch("sys.stdout", new=StringIO()) as output:
+            self.assertFalse(HBNBCommand().onecmd("help quit"))
+            self.assertEqual(h, output.getvalue().strip())
+
+
 class TestHBNBCommand_help(unittest.TestCase):
     """Unittests for testing help messages of the HBNB command interpreter."""
 
@@ -114,6 +125,7 @@ class TestHBNBCommand_exit(unittest.TestCase):
     def test_EOF_exits(self):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertTrue(HBNBCommand().onecmd("EOF"))
+
 
 class TestHBNBCommand_create(unittest.TestCase):
     """Unittests for testing create from the HBNB command interpreter."""
@@ -1566,3 +1578,4 @@ class TestHBNBCommand_count(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

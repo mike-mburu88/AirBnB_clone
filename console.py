@@ -25,11 +25,12 @@ def parse(arg):
             retl = [i.strip(",") for i in lexer]
             retl.append(brackets.group())
             return retl
-        else:
-            lexer = split(arg[:curly_braces.span()[0]])
-            retl = [i.strip(",") for i in lexer]
-            retl.append(curly_braces.group())
-            return retl
+    else:
+        lexer = split(arg[:curly_braces.span()[0]])
+        retl = [i.strip(",") for i in lexer]
+        retl.append(curly_braces.group())
+        return retl
+
 class HBNBCommand(cmd.Cmd):
     """Defines the HolbertonBnB command interpreter.
     Attributes:
@@ -37,7 +38,7 @@ class HBNBCommand(cmd.Cmd):
     """
 
     prompt = "(hbnb) "
-     __classes = {
+    __classes = {
         "BaseModel",
         "User",
         "State",
